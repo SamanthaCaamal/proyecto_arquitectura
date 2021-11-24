@@ -1,0 +1,11 @@
+C:\xampp\htdocs\proyecto_arquitectura\CRUD-BackEnd\src\main\java\mx\uady\sicei\config\WebSecurity.java
+C:\xampp\htdocs\proyecto_arquitectura\CRUD-BackEnd\src\main\java\mx\uady\sicei\repository\EmployeeRepository.java
+C:\xampp\htdocs\proyecto_arquitectura\CRUD-BackEnd\src\main\java\mx\uady\sicei\exception\ForbiddenException.java
+C:\xampp\htdocs\proyecto_arquitectura\CRUD-BackEnd\src\main\java\mx\uady\sicei\model\request\EmployeeRequest.java
+C:\xampp\htdocs\proyecto_arquitectura\CRUD-BackEnd\src\main\java\mx\uady\sicei\exception\ValidationExceptionsHandler.java
+C:\xampp\htdocs\proyecto_arquitectura\CRUD-BackEnd\src\main\java\mx\uady\sicei\exception\NotFoundException.java
+C:\xampp\htdocs\proyecto_arquitectura\CRUD-BackEnd\src\main\java\mx\uady\sicei\config\WebConfiguration.java
+C:\xampp\htdocs\proyecto_arquitectura\CRUD-BackEnd\src\main\java\mx\uady\sicei\SiceiApplication.java
+C:\xampp\htdocs\proyecto_arquitectura\CRUD-BackEnd\src\main\java\mx\uady\sicei\model\Employee.java
+C:\xampp\htdocs\proyecto_arquitectura\CRUD-BackEnd\src\main\java\mx\uady\sicei\rest\EmployeeRest.java
+C:\xampp\htdocs\proyecto_arquitectura\CRUD-BackEnd\src\main\java\mx\uady\sicei\service\EmployeeService.java

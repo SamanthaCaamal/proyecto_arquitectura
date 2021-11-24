@@ -1,0 +1,11 @@
+mx\uady\sicei\exception\ValidationExceptionsHandler.class
+mx\uady\sicei\model\Employee.class
+mx\uady\sicei\SiceiApplication.class
+mx\uady\sicei\model\request\EmployeeRequest.class
+mx\uady\sicei\config\WebConfiguration.class
+mx\uady\sicei\exception\NotFoundException.class
+mx\uady\sicei\exception\ForbiddenException.class
+mx\uady\sicei\rest\EmployeeRest.class
+mx\uady\sicei\repository\EmployeeRepository.class
+mx\uady\sicei\service\EmployeeService.class
+mx\uady\sicei\config\WebSecurity.class
