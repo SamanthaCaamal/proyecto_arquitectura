@@ -1,2 +1,10 @@
 *node_modules/*
 *target/*
+config.properties
+.classpath
+.project
+.settings/
+.idea/
+target/
+*.iml
+package-lock.json
