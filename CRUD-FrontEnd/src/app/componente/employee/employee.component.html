@@ -1,1 +1,92 @@
-<p>employee works!</p>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: rgba(67,94,124,255);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Administración de Empleados</a>
+      <form class="d-flex">
+        <button type="button" class="btn btn-sm btn-danger" style="margin-right: 10px;">
+            <i class="material-icons">remove_circle</i> Eliminar
+        </button>
+        <button type="button" class="btn btn-sm btn-success" (click)="open(content)">
+            <i class="material-icons">add_circle</i> Añadir nuevo empleado
+        </button>
+      </form>
+    </div>
+</nav>
+
+<div class="form-container">
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID Empleado</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Email</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Telefóno</th>
+                <th scope="col">Acciones</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of employeesList | slice: (page-1) * pageSize : page * pageSize">
+                <th scope="row"> {{ item.id }} </th>
+                <td> {{ item.name }}</td>
+                <td> {{ item.email }}</td>
+                <td> {{ item.address }}</td>
+                <td> {{ item.phone }}</td>
+                <td>
+                    <button class="btn btn-sm btn-warning" type="button" style="margin-right: 10px;" (click)="edit(item)">
+                        <i class="material-icons">edit</i>
+                    </button>
+
+                    <button class="btn btn-sm btn-danger" type="button" (click)=deleteEmployee(item)> 
+                        <i class="material-icons">delete</i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ngb-pagination class="d-flex justify-content-center"
+                [(page)]="page"
+                [pageSize]="pageSize"
+                [collectionSize]="employeesList.length"
+                [boundaryLinks]="true"
+                [maxSize]="5"
+                [rotate]="true"
+                [ellipses]="false"
+            >
+    </ngb-pagination>
+</div>
+
+<!-- Modal -->
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title"> {{ model.id ? 'Editar' : 'Nuevo' }} empleado</h4>
+      <button #btnClose type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form (ngSubmit)="save()" #myform="ngForm">
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input [ngClass] = "{'is-valid': !name.invalid, 'is-invalid': name.invalid}" [(ngModel)]="model.name" type="text" class="form-control" #name="ngModel" name="name" id="name" placeholder="Escribir nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input [ngClass] = "{'is-valid': !email.invalid, 'is-invalid': email.invalid}" [(ngModel)]="model.email" type="email" class="form-control" #email="ngModel" name="email" id="email" placeholder="Escribir email" required email>
+            </div>
+            <div class="form-group">
+                <label for="address">Dirección:</label>
+                <input [(ngModel)]="model.address" type="text" class="form-control" #address="ngModel" name="address" id="address" placeholder="Escribir dirección">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone: </label>
+                <input [(ngModel)]="model.phone" type="text" class="form-control" #phone="ngModel" type="number" min="1" max="10" pattern="^[0-9]+" name="phone" id="phone" placeholder="Ingresar número teléfonico">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" [disabled]="!myform.valid" class="btn btn-outline-dark">Save</button>
+        </div>
+    </form>
+</ng-template>

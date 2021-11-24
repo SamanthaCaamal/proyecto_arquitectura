@@ -29,8 +29,8 @@ export class EmployeeService {
     return this.httpClient.get(this.url_base + "/" + id, options);
   }
 
-  createEmployee(id: number, model: EmployeeResponse): Observable<any> {
-    return this.httpClient.post(this.url_base + "/" + id, model, {headers: this.headers});
+  createEmployee(model: EmployeeResponse): Observable<any> {
+    return this.httpClient.post(this.url_base + "/", model, {headers: this.headers});
   }
 
   updateEmployee(model: EmployeeResponse): Observable<any> {

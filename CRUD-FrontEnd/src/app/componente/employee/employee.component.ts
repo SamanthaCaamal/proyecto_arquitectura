@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { EmployeeResponse } from 'src/app/model/employee';
 import { EmployeeService } from 'src/app/service/employee/employee.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-employee',
@@ -10,9 +12,16 @@ import { EmployeeService } from 'src/app/service/employee/employee.service';
 export class EmployeeComponent implements OnInit {
 
   public employeesList: EmployeeResponse[] = [];
+  model = new EmployeeResponse();
+  dialog!: NgbModalRef | null;
+  public clientIdSelected!: any;
+  @ViewChild('content') content!: ElementRef;
+  public page = 20;
+  public pageSize = 5;
 
   constructor(
-    private employeeService: EmployeeService
+    private employeeService: EmployeeService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -26,6 +35,73 @@ export class EmployeeComponent implements OnInit {
     } catch (e) {
       console.log(e);
     }
+  }
+
+  public save() {
+    if(this.model.id) {
+      this.updateEmployee()
+    } else {
+      this.addEmployee();
+    }
+  }
+
+  //Methods Api
+  async addEmployee() {
+    try {
+      await this.employeeService.createEmployee(this.model).toPromise();
+      console.log(this.model);
+      this.getEmployees();
+      this.close();
+      Swal.fire({title: 'Empleado registrado exitosamente', icon: 'success'});
+    } catch (e: any) {
+      Swal.fire({title: e.error.message, icon: 'error'});
+    }
+  }
+
+  async updateEmployee() {
+    try {
+      await this.employeeService.updateEmployee(this.model).toPromise();
+        this.getEmployees();
+        this.close();
+        Swal.fire({title: 'Información del empleado actualizado', icon: 'success'});
+    } catch (e: any) {
+      console.log(e);
+      Swal.fire({title: e.error.message, icon: 'error'});
+    }
+  }
+
+  public deleteEmployee(item: EmployeeResponse) {
+    Swal.fire({
+      title: '¿Desea eliminar al empleado?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar'
+    }).then( async res => {
+      if (res.value) {
+        await this.employeeService.deleteEmployee(item);
+        this.getEmployees();
+        Swal.fire({title: 'Empleado eliminado exitosamente', icon: 'success'});
+      }
+    })
+  }
+
+  //Controller Modal
+  public open(content: any) {
+    this.model = new EmployeeResponse();
+    this.dialog = this.modalService.open(content);
+  }
+
+  public edit(item: EmployeeResponse) {
+    this.open(this.content);
+    this.model = item;
+  }
+
+  public close() {
+    if ( this.dialog ) {
+      this.dialog.dismiss();
+      this.dialog = null;
+      }
   }
 
 }
