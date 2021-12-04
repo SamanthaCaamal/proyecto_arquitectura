@@ -69,6 +69,9 @@ public class Employee {
         return name;
     }
 
+    /** 
+     * Método set para el Nombre del empleado.
+     */
     public void setName(String name) {
         this.name = name;
     }
@@ -81,6 +84,9 @@ public class Employee {
         return email;
     }
 
+    /** 
+     * Método set para Correo electronico del empleado.
+     */
     public void setEmail(String email) {
         this.email = email;
     }
@@ -93,6 +99,9 @@ public class Employee {
         return address;
     }
 
+    /** 
+     * Método set para la dirección del empleado.
+     */
     public void setAddress(String address) {
         this.address = address;
     }
@@ -105,10 +114,17 @@ public class Employee {
         return phone;
     }
 
+    /** 
+     * Método set para el número de teléfono del empleado.
+     */
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
+    /** 
+     * Devuelve todos los campos de Empleado en un String.
+     * @return Los datos del empleado formateado como JSON
+     */
     @Override
     public String toString() {
         return "{" + "id=" + getId() + "name=" + getName() + "email=" + getEmail() + "address=" + getAddress()
