@@ -1,5 +1,9 @@
 package mx.uady.sicei.model.request;
-
+/**
+ * Una clase para realizar que almacena y valida que
+ * los datos ingresados desde el sistema estén en el formato correcto y no estén vacíos.
+ * @author Samantha Caamal, Montserrat Bustamante 
+ */
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -32,56 +36,56 @@ public class EmployeeRequest {
     }
 
     /**
-     * @return String return the name
+     * @return String el Nombre del empleado
      */
     public String getName() {
         return name;
     }
 
     /**
-     * @param name the name to set
+     * @param name el Nombre del Empleado que se quiere registrar
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * @return String return the email
+     * @return String el correo electrónico del empleado
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     * @param email the email to set
+     * @param email el correo electrónico del Empleado que se quiere registrar
      */
     public void setEmail(String email) {
         this.email = email;
     }
 
     /**
-     * @return String return the address
+     * @return String la dirección del Empleado 
      */
     public String getAddress() {
         return address;
     }
 
     /**
-     * @param address the address to set
+     * @param address la dirección del Empleado que se quiere registrar
      */
     public void setAddress(String address) {
         this.address = address;
     }
 
     /**
-     * @return int return the phone
+     * @return String el número de teléfono del Empleado 
      */
     public String getPhone() {
         return phone;
     }
 
     /**
-     * @param phone the phone to set
+     * @param phone el número de teléfono del Empleado que se quiere registrar
      */
     public void setPhone(String phone) {
         this.phone = phone;

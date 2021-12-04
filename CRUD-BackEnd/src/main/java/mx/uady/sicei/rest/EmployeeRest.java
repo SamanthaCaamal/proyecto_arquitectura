@@ -1,5 +1,9 @@
 package mx.uady.sicei.rest;
-
+/**
+ * Esta clase que realiza un callout a la API para obtener, postear
+ * y eliminar un registro de la Base de Datos.
+ * @author Samantha Caamal, Montserrat Bustamante 
+ */
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -34,11 +38,18 @@ public class EmployeeRest {
     @Autowired
     private EmployeeService employeeService;
 
+    /** 
+     * @return ResponseEntity<List<Employee>> una lista de empleados.
+     */
     @GetMapping("/employee")
     public ResponseEntity<List<Employee>> getEmployees() {
         return ResponseEntity.ok().body(employeeService.getEmployees());
     }
 
+    /** 
+     * @param Integer Id, el Id del empleado que se desea buscar
+     * @return ResponseEntity<Employee> el registro de un Empleado
+     */
     @GetMapping("/employee/{id}")
     public ResponseEntity<Employee> getEmployee(@PathVariable Integer id) {
         Employee employee = employeeService.getEmployeeById(id);

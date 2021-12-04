@@ -3,7 +3,7 @@ package mx.uady.sicei.model;
  * Una clase para definir un empleado y sus características.
  * Utiliza intefaz Table que se utilizará para insertar todos los registros
  * de empleado en una tabla.
- * @author Samantha Caamal, Montserrat Bustamante, 
+ * @author Samantha Caamal, Montserrat Bustamante 
  */
 
 import javax.persistence.Column;
@@ -48,7 +48,7 @@ public class Employee {
 
     /** 
      * Método get para el Id del empleado.
-     * @return el Id del empleado.
+     * @return Integer el Id del empleado.
      */
     public Integer getId() {
         return id;
@@ -63,7 +63,7 @@ public class Employee {
 
     /** 
      * Método get para el Nombre del empleado.
-     * @return el Nombre del empleado.
+     * @return String el Nombre del empleado.
      */
     public String getName() {
         return name;
@@ -78,7 +78,7 @@ public class Employee {
 
     /** 
      * Método get para el Correo electrónico del empleado.
-     * @return el Correo electrónico del empleado.
+     * @return String el Correo electrónico del empleado.
      */
     public String getEmail() {
         return email;
@@ -93,7 +93,7 @@ public class Employee {
 
     /** 
      * Método get para la dirección del empleado.
-     * @return la dirección del empleado.
+     * @return String la dirección del empleado.
      */
     public String getAddress() {
         return address;
@@ -108,7 +108,7 @@ public class Employee {
 
     /** 
      * Método get para el número de teléfono del empleado.
-     * @return el número de teléfono del empleado.
+     * @return String el número de teléfono del empleado.
      */
     public String getPhone() {
         return phone;
