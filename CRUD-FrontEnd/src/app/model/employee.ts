@@ -4,6 +4,7 @@ export class EmployeeResponse {
     public email!: string
     public address!: string
     public phone!: string
+    public checked!: boolean;
 
     constructor(
         ){}

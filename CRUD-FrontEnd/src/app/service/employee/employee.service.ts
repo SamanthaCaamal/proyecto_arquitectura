@@ -37,7 +37,7 @@ export class EmployeeService {
     return this.httpClient.put(this.url_base + "/" + model.id, model, {headers: this.headers});
   }
 
-  deleteEmployee(model: EmployeeResponse) {
+  deleteEmployee(model: any) {
     return this.httpClient.delete(this.url_base + "/" + model.id, {headers: this.headers}).toPromise();
   }
 }

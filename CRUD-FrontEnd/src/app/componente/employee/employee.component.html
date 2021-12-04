@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Administración de Empleados</a>
       <form class="d-flex">
-        <button type="button" class="btn btn-sm btn-danger" style="margin-right: 10px;">
+        <button type="button" class="btn btn-sm btn-danger" (click)="removeItems()" style="margin-right: 10px;">
             <i class="material-icons">remove_circle</i> Eliminar
         </button>
         <button type="button" class="btn btn-sm btn-success" (click)="open(content)">
@@ -17,17 +17,28 @@
     <table class="table table-striped table-hover">
         <thead class="thead-dark">
             <tr>
+                <th></th>
                 <th scope="col">ID Empleado</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Email</th>
                 <th scope="col">Dirección</th>
                 <th scope="col">Telefóno</th>
                 <th scope="col">Acciones</th>
-                <th></th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let item of employeesList | slice: (page-1) * pageSize : page * pageSize">
+                <td>
+                    <!--<input type="checkbox" (change)="onCheckboxChange($event, item)"/>-->
+                    <input
+                        mdbCheckbox
+                        type="checkbox"
+                        id="checkboxItem"
+                        [(ngModel)]="item.checked" 
+                        aria-label="..."
+                        
+                    />
+                </td>
                 <th scope="row"> {{ item.id }} </th>
                 <td> {{ item.name }}</td>
                 <td> {{ item.email }}</td>

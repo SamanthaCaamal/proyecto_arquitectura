@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { EmployeeResponse } from 'src/app/model/employee';
 import { EmployeeService } from 'src/app/service/employee/employee.service';
@@ -17,7 +17,8 @@ export class EmployeeComponent implements OnInit {
   public clientIdSelected!: any;
   @ViewChild('content') content!: ElementRef;
   public page = 20;
-  public pageSize = 5;
+  public pageSize = 6;
+//  public arrayChecked: string[] = [];
 
   constructor(
     private employeeService: EmployeeService,
@@ -31,7 +32,6 @@ export class EmployeeComponent implements OnInit {
   private async getEmployees() {
     try {
       this.employeesList = await this.employeeService.getEmployees().toPromise();
-      console.log(this.employeesList);
     } catch (e) {
       console.log(e);
     }
@@ -49,7 +49,7 @@ export class EmployeeComponent implements OnInit {
   async addEmployee() {
     try {
       await this.employeeService.createEmployee(this.model).toPromise();
-      console.log(this.model);
+      //console.log(this.model);
       this.getEmployees();
       this.close();
       Swal.fire({title: 'Empleado registrado exitosamente', icon: 'success'});
@@ -102,6 +102,27 @@ export class EmployeeComponent implements OnInit {
       this.dialog.dismiss();
       this.dialog = null;
       }
+  }
+
+  public removeItems() {
+    Swal.fire({
+      title: '¿Seguro desea eliminar los elementos?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar'
+    }).then(async res => {
+      if (res.value) {
+        const employesToDelete = this.employeesList.filter(e => e.checked);
+        
+        for ( let element of employesToDelete) {
+          await this.employeeService.deleteEmployee(element);          
+        }
+
+        Swal.fire({title: 'Elementos eliminados con exitosamente', icon: 'success'});
+        this.getEmployees();
+      }
+    })
   }
 
 }
