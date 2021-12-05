@@ -39,7 +39,7 @@ public class EmployeeRest {
     private EmployeeService employeeService;
 
     /** 
-     * @return ResponseEntity<List<Employee>> una lista de empleados.
+     * @return ResponseEntity<List<Employee>> la lista de todos los empleados.
      */
     @GetMapping("/employee")
     public ResponseEntity<List<Employee>> getEmployees() {
@@ -56,6 +56,10 @@ public class EmployeeRest {
         return ResponseEntity.status(HttpStatus.OK).body(employee);
     }
 
+    /** 
+     * @param request, la petición para la creación de un nuevo record Empleado
+     * @return ResponseEntity<Employee> 
+     */
     @PostMapping("/employee")
     public ResponseEntity<Employee> createEmployee(@RequestBody @Valid EmployeeRequest request)
             throws URISyntaxException {
@@ -63,18 +67,30 @@ public class EmployeeRest {
         return ResponseEntity.created(new URI("/employee/" + employee.getId())).body(employee);
     }
 
+    /** 
+     * @param request, la petición para editar un record Empleado que esté en la BD
+     * @return ResponseEntity<Employee> 
+     */
     @PutMapping("/employee/{id}")
     public ResponseEntity<Employee> editEmployee(@RequestBody @Valid EmployeeRequest request,
             @PathVariable Integer id) {
         return ResponseEntity.ok().body(employeeService.updateEmployee(id, request));
     }
 
+    /** 
+     * @param Integer, el Id del empleado que se desea eliminar.
+     * @return ResponseEntity<Void> 
+     */
     @DeleteMapping("/employee/{id}")
     public ResponseEntity<Void> deleteEmployee(@PathVariable Integer id) {
         employeeService.deleteEmployee(id);
         return ResponseEntity.ok().build();
     }
 
+    /** 
+     * @param 
+     * @return 
+     */
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> validateExceptions(MethodArgumentNotValidException ex) {
