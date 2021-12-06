@@ -1,6 +1,6 @@
 package mx.uady.sicei.model.request;
 /**
- * Una clase para realizar que almacena y valida que
+ * Una clase que almacena y valida que
  * los datos ingresados desde el sistema estén en el formato correcto y no estén vacíos.
  * @author Samantha Caamal, Montserrat Bustamante 
  */
