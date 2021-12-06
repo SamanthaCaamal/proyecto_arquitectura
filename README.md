@@ -1,9 +1,13 @@
 # Proyecto de arquitectura #
 
-## Equipo:
+### Autores: ###
+*   Samantha Gpe. Caamal Cobá
 
-- Samantha Caamal
-- Montserrat Bustamante
+![image](https://raw.githubusercontent.com/SamanthaCaamal/arquitectura_sw/main/Fotos/samantha.jpg)
+
+*   Montserrat Bustamante Rentería
+
+![image](https://raw.githubusercontent.com/SamanthaCaamal/arquitectura_sw/main/Fotos/montse.png)
 
 ## Proyecto de Spring ##
 ###### Back-End
