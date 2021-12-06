@@ -1,5 +1,10 @@
 # Proyecto de arquitectura #
 
+## Equipo:
+
+- Samantha Caamal
+- Montserrat Bustamante
+
 ## Proyecto de Spring ##
 ###### Back-End
 
