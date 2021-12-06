@@ -1,5 +1,8 @@
 package mx.uady.sicei.repository;
-
+/**
+ * Una clase para realizar queries dentro de la Base de Datos
+ * @author Samantha Caamal, Montserrat Bustamante 
+ */
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;

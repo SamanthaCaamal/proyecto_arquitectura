@@ -87,10 +87,7 @@ public class EmployeeRest {
         return ResponseEntity.ok().build();
     }
 
-    /** 
-     * @param 
-     * @return 
-     */
+  
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> validateExceptions(MethodArgumentNotValidException ex) {

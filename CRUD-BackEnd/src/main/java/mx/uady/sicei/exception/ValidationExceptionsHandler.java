@@ -1,5 +1,8 @@
 package mx.uady.sicei.exception;
-
+/**
+ * Una clase para manejo de excepciones cuando los datos ingresados no pasan las validaciones
+ * @author Samantha Caamal, Montserrat Bustamante 
+ */
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.web.bind.MethodArgumentNotValidException;

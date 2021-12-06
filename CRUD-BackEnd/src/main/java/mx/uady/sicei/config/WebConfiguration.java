@@ -1,5 +1,8 @@
 package mx.uady.sicei.config;
-
+/**
+ * Una clase para la configuración de la seguridad web
+ * @author Samantha Caamal, Montserrat Bustamante 
+ */
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
